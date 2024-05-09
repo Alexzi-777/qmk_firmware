@@ -6,8 +6,6 @@ enum layer_names {
     _LOWER,
     _RAISE,
     _ADJUST,
-    // _RGBc,
-
 };
 
 enum custom_keycodes {
@@ -15,12 +13,12 @@ enum custom_keycodes {
   LOWER,
   RAISE,
   ADJUST,
-//   RGBc,
 };
 
 // Defines for task manager and such
 #define CALTDEL LCTL(LALT(KC_DEL))
 #define TSKMGR LCTL(LSFT(KC_ESC))
+#define CPSN LCTL(KC_PSCR)
 
 // Defines for the keymap home row mods
 #define LGUI_A LGUI_T(KC_A)
@@ -39,33 +37,33 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // ├────┼────┼────┼────┼────┼────┼────┼────┼────┼────┤
 // │ A  │ S  │ D  │ F  │ G  │ H  │ J  │ K  │ L  │ ;  │
 // ├────┼────┼────┼────┼────┼────┼────┼────┼────┼────┤
-// │ Z  │ X  │ C  │ V  │ B  │ N  │ M  │ ,< │ .> │ /? │
+// │ Z  │ X  │ C  │ V  │ B  │ N  │ M  │ ,  │ .  │ /  │
 // ├────┼────┼────┼────┼────┼────┼────┼────┼────┼────┤
-// │    │    |    │ LOW│SPC │BSP │RAIS│RGB │    │    │
+// │    │    │BOOT│ LOW│SPC │BSP │RAIS│RGB │    │    │
 // └────┴────┴────┴────┴────┴────┴────┴────┴────┴────┘
 
     [_QWERTY] = LAYOUT_ortho_4x10(
         KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,
         LGUI_A,  LALT_S,  LSFT_D,  LCTL_F,  KC_G,    KC_H,    RCTL_J,  RSFT_K,  LALT_L,  RGUI_SCLN,
         KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH,
-        KC_NO,   KC_NO,   KC_NO,   LOWER,   KC_SPC,  KC_BSPC, RAISE,   MO(4),   KC_NO,   KC_NO
+        KC_NO,   KC_NO,   QK_BOOT, LOWER,   KC_SPC,  KC_BSPC, RAISE,   MO(4),   KC_NO,   KC_NO
     ),
 
 // ┌────┬────┬────┬────┬────┬────┬────┬────┬────┬────┐
-// │ESC │ `~ │INS │PGUP│HOME│ CW │ [{ │ ]} │ \| │ '" │
+// │ESC │ `  │INS │PGUP│HOME│ CW │ [{ │ ]} │ \| │ '" │
 // ├────┼────┼────┼────┼────┼────┼────┼────┼────┼────┤
 // │ATAB│ASTB│DEL │PGDN│END │PSCR│OSMC│OSMS│OSMA│OSMG│
 // ├────┼────┼────┼────┼────┼────┼────┼────┼────┼────┤
 // │STAB│TAB │PRV │PLAY│NEXT│    │VOLD│MUTE│VOLU│    │
 // ├────┼────┼────┼────┼────┼────┼────┼────┼────┼────┤
-// │    │    │    │ LOW│SPC │BSP │RAIS│RGB │    │    │
+// │    │    │BOOT│ LOW│SPC │BSP │RAIS│RGB │    │    │
 // └────┴────┴────┴────┴────┴────┴────┴────┴────┴────┘
 
     [_LOWER] = LAYOUT_ortho_4x10(
         KC_ESC,  KC_GRV,  KC_INS,  KC_PGUP, KC_HOME, CW_TOGG, KC_LBRC, KC_RBRC, KC_BSLS, KC_QUOT,
         LALT(KC_TAB), LSA(KC_TAB), KC_DEL, KC_PGDN, KC_END, KC_PSCR, OSM(MOD_LCTL), OSM(MOD_LSFT), OSM(MOD_LALT), OSM(MOD_LGUI),
         LSFT(KC_TAB),   KC_TAB,   KC_MPRV, KC_MPLY, KC_MNXT, KC_NO,   KC_VOLD, KC_MUTE, KC_VOLU, KC_NO,
-        KC_NO,   KC_NO,   _______, _______,   KC_NO,  KC_ENT,   _______,   _______, KC_NO,   KC_NO
+        KC_NO,   KC_NO,   QK_BOOT, _______,   KC_NO,  KC_ENT,   _______,   QK_BOOT, KC_NO,   KC_NO
     ),
 
 // ┌────┬────┬────┬────┬────┬────┬────┬────┬────┬────┐
@@ -86,7 +84,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
 // ┌────┬────┬────┬────┬────┬────┬────┬────┬────┬────┐
-// │ F1 │ F2 │ F3 │ F4 │    │    │    │WAKE│SLEP|    │
+// │ F1 │ F2 │ F3 │ F4 │    │    │CPSN│WAKE│SLEP|BOOT│
 // ├────┼────┼────┼────┼────┼────┼────┼────┼────┼────┤
 // │ F5 │ F6 │ F7 | F8 |    │    │    │BRIU│TSKM│CADL│
 // ├────┼────┼────┼────┼────┼────┼────┼────┼────┼────┤
@@ -96,10 +94,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // └────┴────┴────┴────┴────┴────┴────┴────┴────┴────┘
 
     [_ADJUST] = LAYOUT_ortho_4x10(
-        KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_NO,   KC_NO,   KC_NO,   KC_WAKE, KC_SLEP,        KC_NO,
+        KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_NO,   KC_NO,   CPSN,   KC_WAKE, KC_SLEP,        QK_BOOT,
         KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_NO,   KC_NO,   KC_NO,   KC_BRIU, TSKMGR,         CALTDEL,
         KC_F9,   KC_F10,  KC_F11,  KC_F12,  KC_NO,   KC_NO,   KC_NO,   KC_BRID, LALT(KC_SPC),   LGUI(KC_DOT),
-        KC_NO,   KC_NO,   KC_NO,   _______,   KC_NO,   KC_NO,   _______,   QK_BOOT, KC_NO,          KC_NO
+        KC_NO,   KC_NO,   KC_NO,   _______,   KC_NO,   KC_NO,   _______,   KC_NO, KC_NO,          KC_NO
     ),
 
 // ┌────┬────┬────┬────┬────┬────┬────┬────┬────┬────┐

@@ -1,1 +1,1 @@
-SUBS(helloWorld, "QMK is pretty rad eh?", KC_H, KC_Y)
+SUBS(greetablmail, "alex@greetabl.com", KC_U, KC_P)
