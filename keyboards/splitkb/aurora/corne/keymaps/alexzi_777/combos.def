@@ -1,0 +1,21 @@
+SUBS(greetablmail, "alex@greetabl.com", KC_U, KC_P)
+SUBS(qtypBWPASS, "Heaven2Is0Not7Far1Away", KC_Q,KC_T,KC_Y,KC_P)
+
+
+COMB(zxUndo,  LCTL(KC_Z),     KC_Z, KC_X)
+COMB(xcCut,   LCTL(KC_X),     KC_X, KC_C)
+COMB(cvCopy,  LCTL(KC_C),     KC_C, KC_V)
+COMB(vbPaste, LCTL(KC_V),     KC_V, KC_B)
+COMB(opQuote, KC_QUOT,        KC_O, KC_P)
+COMB(ipQuotes, KC_DQT,        KC_I, KC_P)
+
+COMB(qwParenth,   KC_LPRN,   KC_Q, KC_W) // Left parenthesis "("
+COMB(qeParenth,   KC_RPRN,   KC_Q, KC_E) // Right parenthesis ")"
+
+COMB(ewBracket,   KC_LBRC,   KC_E, KC_W) // Left bracket "["
+COMB(wrBracket,   KC_RBRC,   KC_W, KC_R) // Right bracket "]"
+
+COMB(erCurly,     KC_LCBR,   KC_E, KC_R) // Left curly brace "{"
+COMB(etCurly,     KC_RCBR,   KC_E, KC_T) // Right curly brace "}"
+
+COMB(ouAtSymbol, KC_AT, KC_O, KC_U) // "@" symbol
