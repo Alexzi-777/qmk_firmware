@@ -15,5 +15,12 @@
 #endif
 
 #define COMBO_VARIABLE_LEN
-#define COMBO_TERM 50
-#define DEBOUNCE 10
+#define COMBO_TERM 200
+#define COMBO_HOLD_TERM 200
+#define DEBOUNCE 5
+
+#define TAPPING_TERM 200
+
+
+// OLED code
+#define BONGO_CAT
